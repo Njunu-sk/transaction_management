@@ -13,10 +13,8 @@ module TransactionManagement
 
     def update_balance
       account = self.account
-      ActiveRecord::Base.transaction do
-        new_balance = account.balance + amount
-        account.update!(balance: new_balance)
-      end
+      new_balance = account.balance + amount
+      account.update!(balance: new_balance)
       new_balance
     end
 
